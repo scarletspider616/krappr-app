@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:krappr/src/bloc/home_bloc.dart';
 
+import 'map.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => HomeScreenState();
@@ -15,15 +17,30 @@ class HomeScreenState extends State<HomeScreen> {
         title: Text("Home Screen"),
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: bloc.logoutUser,
-          child: Text(
-            "Logout",
-            style: TextStyle(color: Colors.white),
-          ),
-          color: Colors.blue,
+        child: Column(
+          children: <Widget>[
+            RaisedButton(
+              textColor: Colors.white,
+              color: Colors.blue,
+              child: Text('Go to Map'),
+              onPressed: () {
+                navigateToMapPage(context);
+              },
+            ),
+            RaisedButton(
+              onPressed: bloc.logoutUser,
+              child: Text(
+                "Logout",
+                style: TextStyle(color: Colors.white),
+              ),
+              color: Colors.blue,
+            ),
+          ],
         ),
       ),
     );
+  }
+  Future navigateToMapPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()));
   }
 }
