@@ -20,6 +20,9 @@
 # is commented out by default.
 #.vscode/
 
+# no constants in source control
+ios/Runner/Constants.swift
+
 # Flutter/Dart/Pub related
 **/doc/api/
 .dart_tool/

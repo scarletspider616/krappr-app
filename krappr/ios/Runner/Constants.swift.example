@@ -6,6 +6,8 @@
 //  Copyright © 2019 The Chromium Authors. All rights reserved.
 //
 
+// Copy this file, put in your real values and rename to Constants.swift
+
 struct Constants {
     static let GoogleMapApiKey = "INSERT DEVELOPER KEY HERE"
 }
