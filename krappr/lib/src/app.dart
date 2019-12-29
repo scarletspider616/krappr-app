@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'map.dart';
 
 class App extends StatelessWidget {
   @override
@@ -90,6 +91,15 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            Text('Click button to move to SubPage'),
+            RaisedButton(
+              textColor: Colors.white,
+              color: Colors.blue,
+              child: Text('Go to Map'),
+              onPressed: () {
+                navigateToMapPage(context);
+              },
+            ),
           ],
         ),
       ),
@@ -99,5 +109,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  Future navigateToMapPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()));
   }
 }
