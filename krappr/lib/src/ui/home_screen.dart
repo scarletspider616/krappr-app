@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:krappr/src/bloc/home_bloc.dart';
 
 import 'list_view_drawer.dart';
-import 'map.dart';
+import 'map_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -18,11 +18,7 @@ class HomeScreenState extends State<HomeScreen> {
         title: Text("Home Screen"),
       ),
       drawer: ListViewDrawer(),
-      body: MapPage(),
+      body: MapWidget(),
     );
-  }
-
-  Future navigateToMapPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()));
   }
 }
