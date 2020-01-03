@@ -4,13 +4,39 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Run like any other [flutter](https://flutter.dev) project:
 
-A few resources to get you started if this is your first Flutter project:
+`flutter run`
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Google Maps API Key
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To use the google maps features of this app in development, you'll
+need to add your Google Maps API Key.
+
+If you don't already have one, generate it [here](https://developers.google.com/maps/documentation/javascript/get-api-key)
+
+### iOS
+
+copy
+
+`ios/Runner/Constants.swift.example`
+
+to
+
+`ios/Runner/Constants.swift`
+
+and replace
+
+`INSERT DEVELOPER KEY HERE`
+
+with your Google Maps API Key.
+
+### Android
+
+Add
+
+`google.map.key=<YOUR API KEY HERE>`
+
+to
+
+`android/gradle.properties`
