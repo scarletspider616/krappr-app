@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:krappr/src/bloc/home_bloc.dart';
 
+import 'list_view_drawer.dart';
 import 'map.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,6 +17,7 @@ class HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("Home Screen"),
       ),
+      drawer: ListViewDrawer(),
       body: Center(
         child: Column(
           children: <Widget>[
@@ -28,7 +30,6 @@ class HomeScreenState extends State<HomeScreen> {
               },
             ),
             RaisedButton(
-              onPressed: bloc.logoutUser,
               child: Text(
                 "Logout",
                 style: TextStyle(color: Colors.white),
@@ -40,6 +41,7 @@ class HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
   Future navigateToMapPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()));
   }
