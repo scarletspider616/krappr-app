@@ -18,27 +18,7 @@ class HomeScreenState extends State<HomeScreen> {
         title: Text("Home Screen"),
       ),
       drawer: ListViewDrawer(),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            RaisedButton(
-              textColor: Colors.white,
-              color: Colors.blue,
-              child: Text('Go to Map'),
-              onPressed: () {
-                navigateToMapPage(context);
-              },
-            ),
-            RaisedButton(
-              child: Text(
-                "Logout",
-                style: TextStyle(color: Colors.white),
-              ),
-              color: Colors.blue,
-            ),
-          ],
-        ),
-      ),
+      body: MapPage(),
     );
   }
 
