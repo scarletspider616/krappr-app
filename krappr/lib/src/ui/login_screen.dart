@@ -13,7 +13,7 @@ class LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Login"),
-      ),
+      ),  
       body: Container(
         margin: EdgeInsets.all(20.0),
         child: Column(
