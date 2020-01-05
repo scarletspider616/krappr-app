@@ -39,4 +39,4 @@ Add
 
 to
 
-`android/gradle.properties`
+`android/local.properties`
