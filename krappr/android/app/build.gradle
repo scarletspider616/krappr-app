@@ -22,6 +22,9 @@ if (flutterVersionName == null) {
 }
 
 def googleMapApiKey = localProperties.getProperty('google.map.key')
+if (googleMapApiKey == null) {
+    throw new GradleException("Google Maps API key not set. Please follow README instructions on how to add it.")
+}
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
