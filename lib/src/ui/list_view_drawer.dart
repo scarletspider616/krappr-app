@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../bloc/list_view_drawer_bloc.dart';
 
-
 // note that when adding listtiles that are NOT navigating elsewhere
 // you'll want to add Navigator.pop(context);
 class ListViewDrawer extends StatelessWidget {
@@ -14,8 +13,11 @@ class ListViewDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             child: Text(
-                'Krappr'), // TODO: Issue #5 - constants should not be hardcoded
+              'Krappr',
+              style: Theme.of(context).primaryTextTheme.title,
+            ), // TODO: Issue #5 - constants should not be hardcoded
             decoration: BoxDecoration(
+              color: Theme.of(context).accentColor,
             ),
           ),
           ListTile(
