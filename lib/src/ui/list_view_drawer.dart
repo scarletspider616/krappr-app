@@ -16,8 +16,6 @@ class ListViewDrawer extends StatelessWidget {
             child: Text(
                 'Krappr'), // TODO: Issue #5 - constants should not be hardcoded
             decoration: BoxDecoration(
-              color: Colors
-                  .blue, // TODO: Issue #6 - theme styles should not be hardcoded
             ),
           ),
           ListTile(
