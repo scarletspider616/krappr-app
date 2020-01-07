@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:krappr/src/bloc/home_bloc.dart';
 
-import 'list_view_drawer.dart';
+import '../bloc/list_view_drawer_bloc.dart';
 import 'map_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("Home Screen"),
       ),
-      drawer: ListViewDrawer(),
+      drawer: ListViewDrawerBloc().getDefaultListDrawer(),
       body: MapWidget(),
     );
   }
