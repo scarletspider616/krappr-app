@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 // note that when adding listtiles that are NOT navigating elsewhere
 // you'll want to add Navigator.pop(context);
 class ListViewDrawer extends StatelessWidget {
-  // final ListViewDrawerBloc bloc = ListViewDrawerBloc();
   final List<ListViewDrawerItem> items;
 
   ListViewDrawer(this.items);
