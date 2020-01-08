@@ -32,6 +32,7 @@ class _MapWidgetState extends State<MapWidget> {
 
   @override
   Widget build(BuildContext context) {
+    _loadMapStyle(context);
     return GoogleMap(
       onMapCreated: _onMapCreated,
       initialCameraPosition: CameraPosition(
@@ -39,5 +40,21 @@ class _MapWidgetState extends State<MapWidget> {
         zoom: 11.0,
       ),
     );
+  }
+
+  void _loadMapStyle(BuildContext context) {
+    if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
+      rootBundle
+          .loadString('assets/style/map/dark_mode_map_theme.json')
+          .then((jsonString) {
+        _mapStyle = jsonString;
+      });
+    } else {
+      rootBundle
+          .loadString('assets/style/map/default_map_theme.json')
+          .then((jsonString) {
+        _mapStyle = jsonString;
+      });
+    }
   }
 }
