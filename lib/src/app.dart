@@ -1,6 +1,7 @@
 // https://medium.com/swlh/how-to-create-a-simple-login-form-in-flutter-using-bloc-pattern-b55ad52a2a10
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:krappr/src/ui/home_screen.dart';
 import 'package:krappr/src/ui/login_screen.dart';
 
@@ -15,6 +16,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      navigatorKey: Get.key,
       home: createContent(),
     );
   }
