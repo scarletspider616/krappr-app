@@ -14,10 +14,10 @@ class ListViewDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     var widgets = <Widget>[
       DrawerHeader(
-        child: Text(
-            'Krappr',
-            style: Theme.of(context).primaryTextTheme.title
-        ), // TODO: Issue #5 - constants should not be hardcoded
+        child: Text('Krappr',
+            style: Theme.of(context)
+                .primaryTextTheme
+                .title), // TODO: Issue #5 - constants should not be hardcoded
         decoration: BoxDecoration(
           color: Theme.of(context).accentColor,
         ),
@@ -43,6 +43,8 @@ class ListViewDrawerItem {
   ListViewDrawerItem(this.title, this.callback);
 }
 
-class ScreenNavigationDrawerItem<T extends StatefulWidget> extends ListViewDrawerItem {
-  ScreenNavigationDrawerItem(T screen): super(T.toString().replaceAll(r"Screen", ""),  () => Get.to(screen));
+class ScreenNavigationDrawerItem<T extends StatefulWidget>
+    extends ListViewDrawerItem {
+  ScreenNavigationDrawerItem(T screen)
+      : super(T.toString().replaceAll(r"Screen", ""), () => Get.to(screen));
 }
