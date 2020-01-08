@@ -17,7 +17,7 @@ class ListViewDrawer extends StatelessWidget {
                 .primaryTextTheme
                 .title), // TODO: Issue #5 - constants should not be hardcoded
         decoration: BoxDecoration(
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).primaryColor,
         ),
       ),
     ];
