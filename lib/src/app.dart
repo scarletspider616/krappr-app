@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:krappr/src/ui/home_screen.dart';
 import 'package:krappr/src/ui/login_screen.dart';
+import 'package:krappr/src/ui/theme_data.dart';
 
 import 'bloc/authorization_bloc.dart';
 
@@ -13,9 +14,7 @@ class App extends StatelessWidget {
     authBloc.restoreSession();
     return MaterialApp(
       title: 'Krappr',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: appTheme,
       navigatorKey: Get.key,
       home: createContent(),
     );

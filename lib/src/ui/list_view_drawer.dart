@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../bloc/list_view_drawer_bloc.dart';
 import 'package:get/get.dart';
 
 // note that when adding listtiles that are NOT navigating elsewhere
@@ -14,10 +15,11 @@ class ListViewDrawer extends StatelessWidget {
     var widgets = <Widget>[
       DrawerHeader(
         child: Text(
-            'Krappr'), // TODO: Issue #5 - constants should not be hardcoded
+            'Krappr',
+            style: Theme.of(context).primaryTextTheme.title
+        ), // TODO: Issue #5 - constants should not be hardcoded
         decoration: BoxDecoration(
-          color: Colors
-              .blue, // TODO: Issue #6 - theme styles should not be hardcoded
+          color: Theme.of(context).accentColor,
         ),
       ),
     ];
