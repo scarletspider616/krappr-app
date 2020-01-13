@@ -51,10 +51,6 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
       mapController.setMapStyle(null);
       mapController.setMapStyle(_mapStyle);
     } else {
-      // do the initial check for what brightness mode the OS is in, and apply the correct
-      // correct map style
-      // This is not done in init as it creates a race condition (afaik and tested)
-      _initializeStyles();
       _setMapStyle(WidgetsBinding.instance.window.platformBrightness);
     }
 
@@ -75,9 +71,6 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
     }
   }
 
-  // why isn't this in init joey?? Because init seems to get called after build
-  // in the first build of the widget, which overwrites what we want to do with
-  // our own brightness logic
   Future<void> _initializeStyles() async {
     await rootBundle
         .loadString('assets/style/map/dark_mode_map_theme.json')
