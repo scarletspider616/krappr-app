@@ -11,11 +11,13 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   HomeBloc bloc = HomeBloc();
+  String title = "Home Screen";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Screen"),
+        title: Text(title),
       ),
       drawer: ListViewDrawerBloc().getDefaultListDrawer(),
       body: MapWidget(),
