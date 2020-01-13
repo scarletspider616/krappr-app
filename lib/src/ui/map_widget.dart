@@ -13,17 +13,13 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
   String _mapStyleDefault;
   String _mapStyleDark;
   String _mapStyle;
-  bool _hasBuiltOnce = false;
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
-
-  _MapWidgetState() : super() {
-    _initializeStyles();
-  }
 
   @override
   void initState() {
     super.initState();
+    _initializeStyles();
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -82,16 +78,22 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
   // why isn't this in init joey?? Because init seems to get called after build
   // in the first build of the widget, which overwrites what we want to do with
   // our own brightness logic
-  void _initializeStyles() {
-    rootBundle
+  Future<void> _initializeStyles() async {
+    await rootBundle
         .loadString('assets/style/map/dark_mode_map_theme.json')
         .then((jsonString) {
       _mapStyleDark = jsonString;
     });
-    rootBundle
+    await rootBundle
         .loadString('assets/style/map/default_map_theme.json')
         .then((jsonString) {
       _mapStyleDefault = jsonString;
+    });
+    // initial setup
+    setState(() {
+      final Brightness brightness =
+          WidgetsBinding.instance.window.platformBrightness;
+      _setMapStyle(brightness);
     });
   }
 }
