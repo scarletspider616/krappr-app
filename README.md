@@ -1,6 +1,6 @@
 # krappr
 
-A new Flutter project.
+When ya gotta go, ya gotta go...
 
 ## Getting Started
 
