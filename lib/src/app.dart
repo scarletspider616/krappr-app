@@ -15,6 +15,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Krappr',
       theme: appTheme,
+      darkTheme: darkAppTheme,
       navigatorKey: Get.key,
       home: createContent(),
     );
