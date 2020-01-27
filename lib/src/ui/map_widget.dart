@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
@@ -13,13 +14,13 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
   String _mapStyleDefault;
   String _mapStyleDark;
   String _mapStyle;
-
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  Position _position;
 
   @override
   void initState() {
-    super.initState();
+    _initializeLocation();
     _initializeStyles();
+    super.initState();
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -56,8 +57,14 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
 
     return GoogleMap(
       onMapCreated: _onMapCreated,
+      scrollGesturesEnabled: true,
+      tiltGesturesEnabled: true,
+      rotateGesturesEnabled: true,
+      myLocationEnabled: true,
+      compassEnabled: true,
+      myLocationButtonEnabled: true,
       initialCameraPosition: CameraPosition(
-        target: _center,
+        target: LatLng(_position.latitude, _position.longitude),
         zoom: 11.0,
       ),
     );
@@ -87,6 +94,13 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
       final Brightness brightness =
           WidgetsBinding.instance.window.platformBrightness;
       _setMapStyle(brightness);
+    });
+  }
+
+  void _initializeLocation() async {
+    Position currPosition = await Geolocator().getCurrentPosition();
+    setState(() {
+      _position = currPosition;
     });
   }
 }
