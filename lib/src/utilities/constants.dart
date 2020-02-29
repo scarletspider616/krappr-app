@@ -1,0 +1,11 @@
+import 'package:flutter/painting.dart';
+const String HOME_SCREEN = "Home Screen";
+const String LOGIN = "Login";
+const String REVIEW_SCREEN = "Review Screen";
+const String REVIEWS = "Reviews";
+const String KRAPPR = "Krappr";
+const String LOGOUT = "Logout";
+const String EMAIL = "Email Address";
+const String ExampleEMAIL = "you@example.com";
+const String PASSWORD = "Password";
+const String ExamplePASSWORD = "Top Secret 007";
