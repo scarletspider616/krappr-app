@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:krappr/src/bloc/home_bloc.dart';
 
-import '../bloc/list_view_drawer_bloc.dart';
-import 'map_widget.dart';
+import '../../bloc/list_view_drawer_bloc.dart';
+import '../widget/map_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
