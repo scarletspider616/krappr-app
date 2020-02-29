@@ -16,6 +16,16 @@ ThemeData buildDefaultTheme() {
       subtitle: TextStyle(fontSize: 24.0, fontStyle: FontStyle.italic),
       body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
     ),
+
+    sliderTheme: SliderThemeData(
+      activeTrackColor: Colors.blue,
+      inactiveTrackColor: Colors.black26,
+      activeTickMarkColor: Colors.white70,
+      inactiveTickMarkColor: Colors.black,
+      overlayColor: Colors.black12,
+      thumbColor: Colors.deepPurple,
+      showValueIndicator: ShowValueIndicator.always,
+    )
   ));
 }
 
@@ -33,5 +43,15 @@ ThemeData buildDarkTheme() {
       subtitle: TextStyle(fontSize: 24.0, fontStyle: FontStyle.italic),
       body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
     ),
+
+    sliderTheme: SliderThemeData(
+      activeTrackColor: Colors.blue,
+      inactiveTrackColor: Colors.black26,
+      activeTickMarkColor: Colors.white70,
+      inactiveTickMarkColor: Colors.black,
+      overlayColor: Colors.black12,
+      thumbColor: Colors.deepPurple,
+      showValueIndicator: ShowValueIndicator.always,
+    )
   ));
 }
