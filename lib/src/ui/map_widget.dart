@@ -48,6 +48,10 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    if (_position == null) {
+      return Text("Waiting for location");
+    }
+
     if (mapController != null) {
       mapController.setMapStyle(null);
       mapController.setMapStyle(_mapStyle);

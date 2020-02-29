@@ -15,7 +15,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  PermissionStatus _status;
+  PermissionStatus _permissionStatus;
 
   @override
   void initState() {
@@ -39,6 +39,9 @@ class _AppState extends State<App> {
     return StreamBuilder<bool>(
         stream: authBloc.isSessionValid,
         builder: (context, AsyncSnapshot<bool> snapshot) {
+          if (_permissionStatus != PermissionStatus.granted) {
+            _askPermission();
+          }
           if (snapshot.hasData && snapshot.data) {
             return HomeScreen();
           }
@@ -47,9 +50,9 @@ class _AppState extends State<App> {
   }
 
   void _updateStatus(PermissionStatus status) {
-    if (status != _status) {
+    if (status != _permissionStatus) {
       setState(() {
-        _status = status;
+        _permissionStatus = status;
       });
     }
   }
