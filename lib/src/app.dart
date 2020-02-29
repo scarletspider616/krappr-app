@@ -5,10 +5,24 @@ import 'package:get/get.dart';
 import 'package:krappr/src/ui/home_screen.dart';
 import 'package:krappr/src/ui/login_screen.dart';
 import 'package:krappr/src/ui/theme_data.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import 'bloc/authorization_bloc.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  PermissionStatus _status;
+
+  @override
+  void initState() {
+    super.initState();
+    PermissionHandler().checkPermissionStatus(PermissionGroup.locationWhenInUse)
+    .then(_updateStatus);
+  }
   @override
   Widget build(BuildContext context) {
     authBloc.restoreSession();
@@ -30,5 +44,23 @@ class App extends StatelessWidget {
           }
           return LoginScreen();
         });
+  }
+
+  void _updateStatus(PermissionStatus status) {
+    if (status != _status) {
+      setState(() {
+        _status = status;
+      });
+    }
+  }
+
+  void _askPermission() {
+    PermissionHandler().requestPermissions([PermissionGroup.locationWhenInUse])
+      .then(_onStatusRequested);
+  }
+
+  void _onStatusRequested(Map<PermissionGroup, PermissionStatus> statuses) {
+    final status = statuses[PermissionGroup.locationWhenInUse];
+    _updateStatus(status);
   }
 }
