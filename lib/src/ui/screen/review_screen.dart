@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../bloc/list_view_drawer_bloc.dart';
+import '../../bloc/list_view_drawer_bloc.dart';
 
 class ReviewScreen extends StatefulWidget {
   @override

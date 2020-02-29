@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:krappr/src/ui/home_screen.dart';
-import 'package:krappr/src/ui/login_screen.dart';
-import 'package:krappr/src/ui/theme_data.dart';
+import 'package:krappr/src/ui/screen/home_screen.dart';
+import 'package:krappr/src/ui/screen/login_screen.dart';
+import 'package:krappr/src/ui/theme/main_theme.dart';
 
 import 'bloc/authorization_bloc.dart';
 
