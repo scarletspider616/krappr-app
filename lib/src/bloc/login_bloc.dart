@@ -20,17 +20,31 @@ class LoginBloc extends Validators {
       Rx.combineLatest2(email, password, (email, password) => true);
   Stream<bool> get loading => _loadingData.stream;
 
-  void submit() {
+  Future<bool> login() async {
     final validEmail = _emailController.value;
     final validPassword = _passwordController.value;
     _loadingData.sink.add(true);
-    login(validEmail, validPassword);
+    try {
+      var token = await repository.login(validEmail, validPassword);
+      authBloc.openSession(token);
+      return true;
+    } catch (e) {} finally {
+      _loadingData.sink.add(false);
+    }
+    return false;
   }
 
-  login(String email, String password) async {
-    String token = await repository.login(email, password);
-    _loadingData.sink.add(false);
-    authBloc.openSession(token);
+  Future<bool> signUp() async {
+    final validEmail = _emailController.value;
+    final validPassword = _passwordController.value;
+    _loadingData.sink.add(true);
+    try {
+      var token = await repository.signUp(validEmail, validPassword);
+      _loadingData.sink.add(false);
+      authBloc.openSession(token);
+      return true;
+    } catch (e) {}
+    return false;
   }
 
   void dispose() {

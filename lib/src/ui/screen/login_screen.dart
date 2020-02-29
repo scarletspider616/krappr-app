@@ -13,7 +13,7 @@ class LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Login"),
-      ),  
+      ),
       body: Container(
         margin: EdgeInsets.all(20.0),
         child: Column(
@@ -21,7 +21,8 @@ class LoginScreenState extends State<LoginScreen> {
             emailField(bloc),
             passwordField(bloc),
             Container(margin: EdgeInsets.only(top: 25.0)),
-            submitButton(bloc),
+            loginButton(bloc),
+            signUpButton(bloc),
             loadingIndicator(bloc)
           ],
         ),
@@ -67,11 +68,13 @@ Widget passwordField(LoginBloc bloc) => StreamBuilder<String>(
       );
     });
 
-Widget submitButton(LoginBloc bloc) => StreamBuilder<bool>(
+Widget loginButton(LoginBloc bloc) => StreamBuilder<bool>(
       stream: bloc.submitValid,
       builder: (context, snap) {
         return RaisedButton(
-          onPressed: (!snap.hasData) ? null : bloc.submit,
+          onPressed: () async {
+            await login(snap, bloc, context);
+          },
           child: Text(
             "Login",
             style: TextStyle(color: Colors.white),
@@ -80,3 +83,42 @@ Widget submitButton(LoginBloc bloc) => StreamBuilder<bool>(
         );
       },
     );
+
+Widget signUpButton(LoginBloc bloc) => StreamBuilder<bool>(
+      stream: bloc.submitValid,
+      builder: (context, snap) {
+        return RaisedButton(
+          onPressed: () async {
+            await signUp(snap, bloc, context);
+          },
+          child: Text(
+            "Sign up",
+            style: TextStyle(color: Colors.white),
+          ),
+          color: Colors.blue,
+        );
+      },
+    );
+
+Future<void> signUp(snap, LoginBloc bloc, context) async {
+  print(snap);
+  if (snap.hasData) {
+    var successful = await bloc.signUp();
+    if (!successful) {
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text("That username and password combination is unavailable."),
+      ));
+    }
+  }
+}
+
+Future<void> login(snap, LoginBloc bloc, context) async {
+  if (snap.hasData) {
+    var successful = await bloc.login();
+    if (!successful) {
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text("Invalid email or password"),
+      ));
+    }
+  }
+}
