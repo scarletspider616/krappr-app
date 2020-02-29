@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:krappr/src/utilities/constants.dart';
 
 // note that when adding listtiles that are NOT navigating elsewhere
 // you'll want to add Navigator.pop(context);
@@ -12,7 +13,7 @@ class ListViewDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     var widgets = <Widget>[
       DrawerHeader(
-        child: Text('Krappr',
+        child: Text(KRAPPR,
             style: Theme.of(context)
                 .primaryTextTheme
                 .title), // TODO: Issue #5 - constants should not be hardcoded
