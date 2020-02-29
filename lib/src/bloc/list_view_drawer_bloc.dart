@@ -1,7 +1,7 @@
-import 'package:krappr/src/ui/review_screen.dart';
+import 'package:krappr/src/ui/screen/review_screen.dart';
 
-import '../ui/home_screen.dart';
-import '../ui/list_view_drawer.dart';
+import '../ui/screen/home_screen.dart';
+import '../ui/drawer/list_view_drawer.dart' show ListViewDrawer, ListViewDrawerItem, ScreenNavigationDrawerItem;
 import 'authorization_bloc.dart';
 
 class ListViewDrawerBloc {

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:krappr/src/ui/home_screen.dart';
-import 'package:krappr/src/ui/login_screen.dart';
-import 'package:krappr/src/ui/map_widget.dart';
+import 'package:krappr/src/ui/screen/home_screen.dart';
+import 'package:krappr/src/ui/screen/login_screen.dart';
+import 'package:krappr/src/ui/widget/map_widget.dart';
 
 import 'build_testable_widget.dart';
 
