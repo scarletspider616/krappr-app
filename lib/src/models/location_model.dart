@@ -1,4 +1,4 @@
-class KrapprLocationModel {
+class LocationModel {
     double _latitude;
     double _longtitude;
 
@@ -10,7 +10,7 @@ class KrapprLocationModel {
     String get locationName => _locationName;
     String get locationDescription => _locationDescription;
 
-    KrapprLocationModel(double latitude, double longitude, String locationName, String locationDescription){
+    LocationModel(double latitude, double longitude, String locationName, String locationDescription){
       _latitude = latitude;
       _longtitude = longitude;
       _locationName = locationName;
