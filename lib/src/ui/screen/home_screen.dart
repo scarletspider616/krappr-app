@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:krappr/src/bloc/home_bloc.dart';
+import 'package:krappr/src/utilities/constants.dart';
 
 import '../../bloc/list_view_drawer_bloc.dart';
 import '../widget/map_widget.dart';
@@ -11,13 +12,12 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   HomeBloc bloc = HomeBloc();
-  String title = "Home Screen";
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(HOME_SCREEN),
       ),
       drawer: ListViewDrawerBloc().getDefaultListDrawer(),
       body: MapWidget(),

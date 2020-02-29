@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krappr/src/utilities/constants.dart';
 
 import '../../bloc/list_view_drawer_bloc.dart';
 
@@ -12,10 +13,10 @@ class ReviewScreenState extends State<ReviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Review Screen"),
+        title: Text(REVIEW_SCREEN),
       ),
       drawer: ListViewDrawerBloc().getDefaultListDrawer(),
-      body: Text("Reviews"),
+      body: Text(REVIEWS),
     );
   }
 }

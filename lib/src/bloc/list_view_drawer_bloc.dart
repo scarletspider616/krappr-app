@@ -1,4 +1,5 @@
 import 'package:krappr/src/ui/screen/review_screen.dart';
+import 'package:krappr/src/utilities/constants.dart';
 
 import '../ui/screen/home_screen.dart';
 import '../ui/drawer/list_view_drawer.dart' show ListViewDrawer, ListViewDrawerItem, ScreenNavigationDrawerItem;
@@ -13,7 +14,7 @@ class ListViewDrawerBloc {
     return ListViewDrawer([
       ScreenNavigationDrawerItem(HomeScreen()),
       ScreenNavigationDrawerItem(ReviewScreen()),
-      ListViewDrawerItem("Logout", () => authBloc.closeSession()),
+      ListViewDrawerItem(LOGOUT, () => authBloc.closeSession()),
     ]);
   }
 }

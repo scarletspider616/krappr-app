@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:krappr/src/ui/login_screen.dart';
+import 'package:krappr/src/ui/screen/login_screen.dart';
 
 import 'build_testable_widget.dart';
 

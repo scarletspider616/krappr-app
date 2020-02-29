@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:krappr/src/utilities/constants.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:krappr/src/ui/screen/home_screen.dart';
 import 'package:krappr/src/ui/screen/login_screen.dart';
@@ -27,7 +28,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     authBloc.restoreSession();
     return MaterialApp(
-      title: 'Krappr',
+      title: KRAPPR,
       theme: appTheme,
       darkTheme: darkAppTheme,
       navigatorKey: Get.key,

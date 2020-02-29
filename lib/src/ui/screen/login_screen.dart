@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:krappr/src/bloc/login_bloc.dart';
+import 'package:krappr/src/utilities/constants.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
+        title: Text(LOGIN),
       ),  
       body: Container(
         margin: EdgeInsets.all(20.0),
@@ -47,8 +48,8 @@ Widget emailField(LoginBloc bloc) => StreamBuilder<String>(
           keyboardType: TextInputType.emailAddress,
           onChanged: bloc.changeEmail,
           decoration: InputDecoration(
-              labelText: "Email Address",
-              hintText: "you@example.com",
+              labelText: EMAIL,
+              hintText: ExampleEMAIL,
               errorText: snap.error),
         );
       },
@@ -61,8 +62,8 @@ Widget passwordField(LoginBloc bloc) => StreamBuilder<String>(
         obscureText: true,
         onChanged: bloc.changePassword,
         decoration: InputDecoration(
-            labelText: "Password",
-            hintText: "Super Secret",
+            labelText: PASSWORD,
+            hintText: ExamplePASSWORD,
             errorText: snap.error),
       );
     });
@@ -73,7 +74,7 @@ Widget submitButton(LoginBloc bloc) => StreamBuilder<bool>(
         return RaisedButton(
           onPressed: (!snap.hasData) ? null : bloc.submit,
           child: Text(
-            "Login",
+            LOGIN,
             style: TextStyle(color: Colors.white),
           ),
           color: Colors.blue,
