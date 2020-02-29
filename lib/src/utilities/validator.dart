@@ -15,10 +15,10 @@ class Validators {
 
   final validatePassword = StreamTransformer<String, String>.fromHandlers(
       handleData: (String password, EventSink<String> sink) {
-    if (password.length > 3) {
+    if (password.length > 7 && password.contains(new RegExp(r"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*"))) {
       sink.add(password);
     } else {
-      sink.addError('Enter must be at least 4 characters');
+      sink.addError('Password must be at least 8 characters, and including at least one uppercase letter, one lowercase letter and one numbers');
     }
   });
 }
