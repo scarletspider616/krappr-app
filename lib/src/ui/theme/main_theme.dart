@@ -15,6 +15,7 @@ ThemeData buildDefaultTheme() {
       title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
       subtitle: TextStyle(fontSize: 24.0, fontStyle: FontStyle.italic),
       body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+      button: TextStyle(color: Colors.white)
     ),
   ));
 }

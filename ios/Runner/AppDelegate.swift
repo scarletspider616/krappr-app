@@ -1,6 +1,7 @@
 import UIKit
 import Flutter
 import GoogleMaps
+import flutter_auth0
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -12,4 +13,10 @@ import GoogleMaps
     GMSServices.provideAPIKey(Constants.GoogleMapApiKey)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
+    
+    override func application(_ app: UIApplication,
+                               open url: URL,
+                               options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return FlutterAuth0Plugin.application(app, open: url, options: options)
+    }
 }
