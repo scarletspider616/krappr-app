@@ -78,9 +78,9 @@ Widget loginButton(LoginBloc bloc) => StreamBuilder<bool>(
           },
           child: Text(
             LOGIN,
-            style: TextStyle(color: Colors.white),
+            style: Theme.of(context).textTheme.button,
           ),
-          color: Colors.blue,
+          color: Theme.of(context).primaryColor,
         );
       },
     );
@@ -94,9 +94,9 @@ Widget signUpButton(LoginBloc bloc) => StreamBuilder<bool>(
           },
           child: Text(
             "Sign up",
-            style: TextStyle(color: Colors.white),
+            style: Theme.of(context).textTheme.button,
           ),
-          color: Colors.blue,
+          color: Theme.of(context).primaryColor,
         );
       },
     );
