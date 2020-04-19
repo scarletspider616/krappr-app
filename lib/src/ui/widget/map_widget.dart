@@ -3,6 +3,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:krappr/src/bloc/map_bloc.dart';
+import 'package:krappr/src/models/location_model.dart';
 
 class MapWidget extends StatefulWidget {
   @override
@@ -15,6 +17,8 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
   String _mapStyleDark;
   String _mapStyle;
   Position _position;
+  List<Marker> _markers = new List<Marker>();
+  MapBloc _bloc = MapBloc();
 
   @override
   void initState() {
@@ -71,6 +75,7 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
         target: LatLng(_position.latitude, _position.longitude),
         zoom: 11.0,
       ),
+      markers: Set<Marker>.of(_markers),
     );
   }
 
@@ -103,8 +108,10 @@ class _MapWidgetState extends State<MapWidget> with WidgetsBindingObserver {
 
   void _initializeLocation() async {
     Position currPosition = await Geolocator().getCurrentPosition();
+    List<Marker> markers = await _bloc.getNearbyBathrooms(currPosition);
     setState(() {
       _position = currPosition;
+      _markers = markers;
     });
   }
 }
